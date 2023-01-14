@@ -14,6 +14,7 @@ class TransformData extends Schema {
 
 export class Player extends Schema {
   @type(TransformData) transformData: TransformData = new TransformData()
+  @type("string") sessionId: string = ""
   @type("string") name: string = "Player";
 }
 

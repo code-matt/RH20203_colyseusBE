@@ -21,6 +21,7 @@ export class MyRoom extends Room<MyRoomState> {
   onJoin (client: Client, options: any) {
     console.log(client.sessionId, "joined!")
     const player = new Player()
+    player.sessionId = client.sessionId
     this.state.players.set(client.sessionId, player)
   }
 
