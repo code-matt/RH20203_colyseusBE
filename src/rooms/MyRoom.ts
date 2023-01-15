@@ -16,6 +16,24 @@ export class MyRoom extends Room<MyRoomState> {
       player.transformData.rZ = message.rZ;
       player.transformData.rW = message.rW;
     })
+
+    this.onMessage("hand_update", (client, { hand, data: { pX, pY, pZ } }) => {
+      const player = this.state.players.get(client.sessionId);
+      let transformData
+      switch (hand) {
+        case 'left':
+          transformData = player.transformDataLeftHand
+          break
+        case 'right':
+          transformData = player.transformDataRightHand
+          break
+        default:
+          break
+      }
+      transformData.pX = pX;
+      transformData.pY = pY;
+      transformData.pZ = pZ;
+    })
   }
 
   onJoin (client: Client, options: any) {

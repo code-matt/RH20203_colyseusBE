@@ -11,9 +11,23 @@ class TransformData extends Schema {
   @type("float32") pZ: number = 0.0;
 }
 
+class TransformDataLeftHand extends Schema {
+  @type("float32") pX: number = 0.0;
+  @type("float32") pY: number = 0.0;
+  @type("float32") pZ: number = 0.0;
+}
+
+class TransformDataRightHand extends Schema {
+  @type("float32") pX: number = 0.0;
+  @type("float32") pY: number = 0.60;
+  @type("float32") pZ: number = 0.0;
+}
+
 
 export class Player extends Schema {
   @type(TransformData) transformData: TransformData = new TransformData()
+  @type(TransformDataLeftHand) transformDataLeftHand: TransformDataLeftHand = new TransformDataLeftHand()
+  @type(TransformDataRightHand) transformDataRightHand: TransformDataRightHand = new TransformDataRightHand()
   @type("string") sessionId: string = ""
   @type("string") name: string = "Player";
 }
