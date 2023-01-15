@@ -19,7 +19,7 @@ class TransformDataLeftHand extends Schema {
 
 class TransformDataRightHand extends Schema {
   @type("float32") pX: number = 0.0;
-  @type("float32") pY: number = 0.60;
+  @type("float32") pY: number = 0.0;
   @type("float32") pZ: number = 0.0;
 }
 
@@ -29,7 +29,8 @@ export class Player extends Schema {
   @type(TransformDataLeftHand) transformDataLeftHand: TransformDataLeftHand = new TransformDataLeftHand()
   @type(TransformDataRightHand) transformDataRightHand: TransformDataRightHand = new TransformDataRightHand()
   @type("string") sessionId: string = ""
-  @type("string") name: string = "Player";
+  @type("string") name: string = "Player"
+  @type("boolean") isVREnabled: boolean = false
 }
 
 

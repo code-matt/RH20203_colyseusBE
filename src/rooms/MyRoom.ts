@@ -34,6 +34,11 @@ export class MyRoom extends Room<MyRoomState> {
       transformData.pY = pY;
       transformData.pZ = pZ;
     })
+
+    this.onMessage("vr_enabled", (client, { vrEnabled }) => {
+      const player = this.state.players.get(client.sessionId);
+      player.isVREnabled = vrEnabled
+    })
   }
 
   onJoin (client: Client, options: any) {
